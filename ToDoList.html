@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .close {
+        position: absolute;
+        right: 3px;
+        top: 10px;
+        padding: 0px 9px;
+      }
+
+      .close:hover {
+        background-color: #f44336;
+        color: white;
+        border-radius: 5px;
+      }
+    </style>
+    <title>TO DO LIST</title>
+  </head>
+  <body>
+    <nav>
+      <div class="navbar">
+        <header>TO DO LIST</header>
+        <ul class="v-navlist" id="navlist">
+          <li><a href="#">HOME</a></li>
+          <li><a href="#makelist">MAKE LIST</a></li>
+          <li><a href="#aboutus">ABOUT WEBSITE</a></li>
+          <li><a href="#contactus">CONTACT US</a></li>
+        </ul>
+      </div>
+      <div class="burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </nav>
+
+    <section id="makelist">
+      <div class="head">
+        <h1>MAKE YOUR LIST</h1>
+        <img src="note.jpg" alt="" />
+      </div>
+
+      <div class="list">
+        <form class="data">
+          <input type="text" id="data" placeholder="Enter Your List Item..." />
+          <img src="write.png" alt="img" class="add" onclick="addTask()" />
+          <input
+            type="button"
+            value="CLEAR ALL"
+            class="clear"
+            onclick="deleteItems()"
+          />
+        </form>
+      </div>
+
+      <div class="items">
+        <ul id="myul"></ul>
+      </div>
+    </section>
+    <hr />
+    <section id="aboutus">
+      <h1 class="heading">ABOUT WEBSITE</h1>
+      <div class="first">
+        <img src="note.jpg" alt="img" />
+        <div class="info">
+          <h1>Make List Of Your Daily Tasks</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus nemo
+            amet labore odio nisi molestias deleniti aperiam eaque at? Eum
+            suscipit nisi ipsam temporibus nobis vitae eius ratione sit, animi
+            nemo amet possimus facilis aperiam. Consequatur debitis quisquam
+            necessitatibus. Rerum eligendi aperiam, voluptates eveniet debitis
+            id sed laudantium ipsa quisquam?
+          </p>
+        </div>
+      </div>
+      <div class="second">
+        <img src="write.png" alt="img" />
+        <div class="info">
+          <h1>Easy To Use</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus nemo
+            amet labore odio nisi molestias deleniti aperiam eaque at? Eum
+            suscipit nisi ipsam temporibus nobis vitae eius ratione sit, animi
+            nemo amet possimus facilis aperiam. Consequatur debitis quisquam
+            necessitatibus. Rerum eligendi aperiam, voluptates eveniet debitis
+            id sed laudantium ipsa quisquam?
+          </p>
+        </div>
+      </div>
+      <div class="third first">
+        <img src="page.png" alt="img" />
+        <div class="info">
+          <h1>Reduce Paper Work</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus nemo
+            amet labore odio nisi molestias deleniti aperiam eaque at? Eum
+            suscipit nisi ipsam temporibus nobis vitae eius ratione sit, animi
+            nemo amet possimus facilis aperiam. Consequatur debitis quisquam
+            necessitatibus. Rerum eligendi aperiam, voluptates eveniet debitis
+            id sed laudantium ipsa quisquam?
+          </p>
+        </div>
+      </div>
+    </section>
+    <hr />
+    <section id="contactus">
+      <h1>Contact us</h1>
+      <form action="" method="post" class="contact">
+        <label for="">Enter Your Name : </label>
+        <input type="text" name="" id="" />
+        <label for="">Enter Your Phone : </label>
+        <input type="number" name="" id="" />
+        <label for="">Enter Your E-mail : </label>
+        <input type="email" name="" id="" />
+        <label for="">Enter Your Concern : </label><br />
+        <!-- <input type="text" name="" id=""> -->
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <input type="submit" value="SUBMIT" class="btn" />
+      </form>
+    </section>
+    <footer>
+      <p>copyright &copy; 2027 www.ToDoList.com - All rights reserved</p>
+    </footer>
+
+    <script>
+      // Retrieve the existing tasks from local storage
+      var tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+      console.log(typeof(tasks));
+
+      // Render the existing tasks
+      renderTasks();
+
+      // Function to add a new task
+      function addTask() {
+        var taskInput = document.getElementById("data");
+        var taskText = taskInput.value.trim();
+        if (taskText == "") {
+          alert("Please Enter Your List Item...");
+        } else {
+          // Add the task to the tasks array
+          tasks.push(taskText);
+
+          // Save the updated tasks array to local storage
+          localStorage.setItem("tasks", JSON.stringify(tasks));
+
+          // Clear the input field
+          taskInput.value = "";
+
+          // Render the updated tasks
+          renderTasks();
+        }
+      }
+
+      // Function to render the tasks
+      function renderTasks() {
+        var myul = document.getElementById("myul");
+        myul.innerHTML = "";
+
+        // Loop through the tasks array and create list items
+        for (var i = 0; i < tasks.length; i++) {
+          var taskItem = document.createElement("li");
+          taskItem.textContent = tasks[i];
+          myul.appendChild(taskItem);
+          var spanel = document.createElement("SPAN");
+          var txtnode = document.createTextNode("\u00D7");
+          spanel.className = "close";
+          spanel.appendChild(txtnode);
+          taskItem.appendChild(spanel);
+          taskItem.style.cursor = "pointer";
+
+          spanel.onclick = function (event) {
+            // taskItem.style.display = "none";
+            const listItem = event.target.parentNode;
+            const itemId = listItem.id;
+            listItem.remove();
+
+            const listString = localStorage.getItem("tasks");
+            const listObject = JSON.parse(listString);
+
+            const index = listObject.findIndex(item => item.id === itemId);
+            listObject.splice(index, 1);
+
+            const newTasks = JSON.stringify(listObject);
+            localStorage.setItem("tasks", newTasks);
+            console.log(listObject);
+          };
+        }
+      }
+      
+      function deleteItems() {
+        if(localStorage.getItem("tasks") == null){
+          alert("Your To Do List Is Already Empty.")
+        }else{
+        localStorage.removeItem("tasks");
+        tasks = [];
+        renderTasks();}
+      }
+
+      burger = document.querySelector(".burger");
+      navlist = document.querySelector(".v-navlist");
+      burger.addEventListener("click", () => {
+        navlist.classList.toggle("navlist");
+      });
+      
+    </script>
+  </body>
+</html>

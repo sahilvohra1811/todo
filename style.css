@@ -1,0 +1,483 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Mclearn", cursive;
+}
+body{
+    background-color: ghostwhite;
+
+}
+
+/* nav{
+    position: sticky;
+    top: 0px;
+    border: 2px solid black
+} */
+
+.navbar {
+    display: flex;
+    background-color: #007bff;
+    height: 60px;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+header {
+    margin: 0px 12px;
+    font-size: 25px;
+}
+
+#navlist {
+    display: flex;
+    margin: 12px;
+}
+
+#navlist li {
+    list-style-type: none;
+    margin: 1px;
+}
+#navlist li:hover {
+    background-color: black;
+    border-radius: 5px;
+    opacity: 1;
+}
+
+#navlist li a {
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+    font-size: 17px;
+}
+
+#makelist {
+    background-color: #A2D2FF;
+    height: 100vh;
+}
+
+.head {
+    font-family: cursive;
+    color: blue;
+    position: absolute;
+    top: 100px;
+    left: 600px;
+    display: flex;
+    align-items: center;
+}
+
+.head img {
+    height: 40px;
+    border-radius: 10px;
+}
+
+.list {
+    position: relative;
+    top: 160px;
+}
+
+
+.data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 30px;
+}
+
+.data input {
+    border: none;
+    height: 40px;
+    padding: 0px 40px;
+    border-radius: 17px;
+    font-size: 18px;
+}
+
+.data input:focus {
+    outline: none;
+}
+
+.add {
+    border-radius: 100px;
+    margin: 0px 10px;
+    background-image: url("write.png");
+    height: 40px;
+}
+
+.add:hover {
+    cursor: pointer;
+}
+
+input.clear{
+    padding: 7px;
+    font-size: 16px;
+    color: red;
+    margin: 0px 20px;
+}
+
+.clear:hover{
+    background-color: black;
+    cursor: pointer;
+}
+
+
+.items {
+    position: absolute;
+    left: 510px;
+    top: 316px;
+    /* background-color: aqua; */
+}
+#myul{
+    position: absolute;
+    left: -20px;
+    top: -35px;
+    width: 400px;
+    height: 145px;
+}
+
+#myul li{
+    position: relative;
+    padding: 10px 50px;
+    list-style: none;
+    border: 2px solid aliceblue;
+    border-radius: 8px;
+    margin: auto auto 5px auto;
+}
+
+hr{
+    border: dotted gray 6px;
+    border-bottom: none;
+    width: 5%;
+    margin: 10px auto;
+}
+
+#aboutus {
+    background-color: #F9F5F6;
+}
+
+#aboutus p {
+    font-size: 20px;
+    justify-content: center;
+}
+
+.first {
+    display: flex;
+    margin-top: 70px;
+
+}
+
+img {
+    height: 200px;
+    margin: 0px 20px;
+    border-radius: 15%
+}
+
+.heading,
+#contactus h1 {
+    padding: 30px 34px;
+    font-size: 30px;
+}
+
+.info h1 {
+    margin-bottom: 35px;
+    color: blue;
+}
+
+.second {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 70px 30px;
+}
+
+#contactus {
+    background-color: #D6EDFF;
+    height: 520px;
+}
+
+.contact {
+    position: absolute;
+    left: 600px;
+}
+
+form label {
+    font-size: 18px;
+    margin: 5px 0px;
+}
+
+.contact input,
+textarea {
+    display: flex;
+    margin: 10px 0px;
+    padding: 0px 10px;
+    width: 300px;
+    height: 25px;
+    border: none;
+    border-radius: 10px;
+}
+
+form .btn {
+    width: 75px;
+    background: black;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    left: 100px;
+    top: 20px;
+    position: relative;
+}
+
+form .btn:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+textarea {
+    resize: none;
+    height: 100px;
+}
+
+.burger {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    display: none;
+}
+
+.line {
+    width: 30px;
+    margin: 3px;
+    background-color: white;
+    height: 3px;
+    border-radius: 5px;
+}
+
+
+
+footer {
+    background-color: black;
+    height: 42px;
+    opacity: 0.8;
+}
+
+footer p {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px;
+}
+
+@media only screen and (max-width:480px) {
+
+    .navbar header {
+        font-size: 22px;
+        width: 160px;
+    }
+
+    .v-navlist{
+        opacity: 0;
+        width: 10px;
+        overflow: hidden;
+    }
+    .navlist {
+        flex-direction: column;
+        opacity: 1;
+        position: relative;
+        top: 85px;
+        background-color: rgb(26, 83, 215);
+        z-index: 1;
+        width: 215px;
+        margin: 5px 0px;
+        transition: all 0.3s ease-out;
+    }
+
+    .burger{
+        display: block;
+        z-index: 5;
+    }
+
+    .head {
+        position: absolute;
+        left: 40px;
+        font-size: 14px;
+    }
+
+    .head img {
+        height: 30px;
+    }
+
+    .items {
+        position: absolute;
+        left: 40px;
+        top: 230px;
+    }
+
+    .clear{
+        position: absolute;
+        top: 148px;
+    }
+
+    .list {
+        top: 120px
+    }
+
+    .heading {
+        padding: 13px 10px;
+        font-size: 20px;
+    }
+
+    #myul {
+        overflow: scroll;
+        position: absolute;
+        top: 10px;
+        left: 0;
+        width: 200px;
+        height: 84px;
+    }
+
+    .data input {
+        height: 30px;
+        width: 50%;
+    }
+
+    .add {
+        height: 30px;
+        border-radius: 10px;
+    }
+
+    #aboutus img {
+        height: 105px;
+        width: 107px;
+        position: relative;
+        left: 110px;
+        margin: 10px 0px;
+    }
+
+    .info h1 {
+        font-size: 18px;
+        padding: 5px;
+        margin: 10px;
+    }
+
+    .info p {
+        font-size: 15px;
+        padding: 15px;
+    }
+
+    .contact {
+        position: absolute;
+        left: 22px;
+        height: 400px;
+    }
+
+    .contact input,textarea{
+        width: 200px;
+        height: 25px;
+        border: none;
+        border-radius: 10px;
+    }
+
+    form .btn{
+        left: 60px;
+        top: 40px;
+        width: 78px;
+    }
+
+    #contactus h1 {
+        padding: 13px 10px;
+        font-size: 24px;
+    }
+
+    form label {
+        font-size: 15px;
+    }
+
+    .first,
+    .second,
+    .third {
+        display: flex;
+        flex-direction: column;
+        margin: 40px 30px;
+    }
+
+    footer p {
+        font-size: 10px;
+    }
+
+}
+
+@media only screen and (min-width:500px) and (max-width:1110px) {
+
+    .head {
+        left: 342px;
+    }
+
+    .head img {
+        height: 40px;
+    }
+
+    .items {
+        left: 320px;
+    top: 300px;
+    }
+    #myul {
+        position: absolute;
+        height: 90px;
+        overflow: scroll;
+    }
+
+    .data input {
+        width: 30%;
+    }
+
+
+    .add {
+        height: 30px;
+        border-radius: 10px;
+    }
+
+    .heading{
+        font-size: 25px;
+    }
+    
+
+    .info h1 {
+        font-size: 18px;
+        padding: 5px;
+        margin: 10px;
+    }
+
+    .info p {
+        font-size: 15px;
+        padding: 15px;
+    }
+
+    .contact {
+        position: absolute;
+        left: 340px;
+        height: 400px;
+    }
+
+    #contactus h1 {
+        padding: 13px 15px;
+        font-size: 25px;
+    }
+
+    form label {
+        font-size: 15px;
+    }
+
+    .first,
+    .second,
+    .third {
+        display: flex;
+        margin: 40px 30px;
+    }
+
+    footer p {
+        font-size: 10px;
+    }
+
+} 
